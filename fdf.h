@@ -68,5 +68,6 @@ int     count_nbr(char *line);
 void	get_map_size(t_mlxdt *data, char *line);
 int	mall_tab(t_mlxdt *data);
 int	get_map(t_mlxdt *data);
+void	window(t_mlxdt *data);
 
 #endif

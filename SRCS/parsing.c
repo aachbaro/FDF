@@ -7,14 +7,12 @@ void	get_map_size(t_mlxdt *data, char *line)
 	i = 0;
 	data->map.w = 0;
 	data->map.h = 0;
-	printf("\n%d\n", data->fd);
 	while (get_next_line(data->fd, &line))
 	{
 		data->map.w = count_nbr(line);
 		data->map.h++;
 		free(line);
 	}
-	close(data->fd);
 }
 
 int	mall_tab(t_mlxdt *data)
@@ -35,24 +33,25 @@ int	mall_tab(t_mlxdt *data)
 	return (0);
 }
 
-void	fill_line(t_point **pt_line, char *line)
+void	fill_line(t_mlxdt *data, char *line, int index)
 {
 	int	i;
 	int	j;
+	int	reading;
 
 	i = 0;
 	j = 0;
+	reading = 0;
 	while (line[i])
 	{
-		if ((ft_isdigit(line[i]) || line[i] == '-'))
+		if (!reading && (ft_isdigit(line[i]) || line[i] == '-'))
 		{
-			pt_line[j]->height = ft_atoi(line + i);
-			while ((ft_isdigit(line[i]) || line[i] == '-') && line[i])
-				i++;
-			j++;
+			data->map.pts[index][j++].height = ft_atoi(line + i);
+			reading = 1;
 		}
-		else if (line[i])
-			i++;
+		else if (reading && !ft_isdigit(line[i]) && line[i] != '-')
+			reading = 0;
+		i++;
 	}
 }
 
@@ -63,8 +62,7 @@ void	fill_tab(t_mlxdt *data, char *line)
 	i = 0;
 	while (get_next_line(data->fd, &line))
 	{
-		printf("i = %d |", i);
-		fill_line(&data->map.pts[i], line);
+		fill_line(data, line, i);
 		free(line);
 		i++;
 	}
@@ -77,6 +75,7 @@ int	get_map(t_mlxdt *data)
 	data->fd = open(data->file, O_RDONLY);
 	get_map_size(data, line);
 	mall_tab(data);
+	close(data->fd);
 	data->fd = open(data->file, O_RDONLY);
 	fill_tab(data, line);
 	return (0);

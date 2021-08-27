@@ -2,8 +2,8 @@
 
 int     count_nbr(char *line)
 {
-int     i;
-int     nbr;
+	int     i;
+	int     nbr;
 
 	i = 0;
 	nbr = 0;
