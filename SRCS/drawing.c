@@ -3,7 +3,9 @@
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
-	int		i;
+	int	i;
+	int	screen_x;
+	int	screen_y;
 
 	if (x < 1920 && x > 0 && y > 0 && y < 1080)
 	{

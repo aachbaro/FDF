@@ -3,6 +3,8 @@ SRC = SRCS/main.c \
       SRCS/drawing.c \
       SRCS/parsing.c \
       SRCS/utils1.c \
+      SRCS/window.c \
+      SRCS/draw_grid.c \
 
 LIBFT = -L./LIBFT -lft
 #MLX = -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit

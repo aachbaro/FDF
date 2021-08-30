@@ -49,6 +49,13 @@ typedef struct		s_line
 	int		incr_y;
 }			t_line;
 
+typedef struct		s_grid
+{
+	int		vect_x;
+	int		vect_y;
+	int		size;
+}			t_grid;
+
 typedef struct		s_mlxdt
 {
 	void		*m_ptr;
@@ -58,6 +65,9 @@ typedef struct		s_mlxdt
 	t_img		img;
 	t_map		map;
 	t_line		line;
+	t_grid		val;
+	int		screen_x;
+	int		screen_y;
 }			t_mlxdt;
 
 void    img_pix_put(t_img *img, int x, int y, int color);
@@ -68,6 +78,8 @@ int     count_nbr(char *line);
 void	get_map_size(t_mlxdt *data, char *line);
 int	mall_tab(t_mlxdt *data);
 int	get_map(t_mlxdt *data);
-void	window(t_mlxdt *data);
+int	window(t_mlxdt *data);
+void	draw_grid(t_mlxdt *data);
+void	free_everything(t_mlxdt *data);
 
 #endif

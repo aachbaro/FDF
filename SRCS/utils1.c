@@ -19,3 +19,23 @@ int     count_nbr(char *line)
 		nbr--;
 	return (nbr);
 }
+
+void	free_everything(t_mlxdt *data)
+{
+	int	i;
+
+	i = 0;
+//	free(data->file);
+	printf("\nOK\n");
+	while (i < data->map.h)
+	{
+		free(data->map.pts[i++]);
+		printf("\n%d\n", i);
+	}
+	//printf("\ndestroy image\n");
+	//mlx_destroy_image(data->m_ptr, data->img.p_img);
+	//printf("\ndestroy win\n");
+	//mlx_destroy_window(data->m_ptr, data->m_win);
+	//printf("\ndestroy disp\n");
+	//mlx_destroy_display(data->m_ptr);
+}
