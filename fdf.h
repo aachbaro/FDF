@@ -54,6 +54,8 @@ typedef struct		s_grid
 	int		vect_x;
 	int		vect_y;
 	int		size;
+	int		init_x;
+	int		init_y;
 }			t_grid;
 
 typedef struct		s_mlxdt

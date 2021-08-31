@@ -27,8 +27,8 @@ void	set_points(t_mlxdt *data)
 	int	i;
 
 	i = 0;
-	data->map.pts[0][0].x = data->screen_x / 2;
-	data->map.pts[0][0].y = data->screen_y / 5;
+	data->map.pts[0][0].x = data->val.init_x;
+	data->map.pts[0][0].y = data->val.init_y;
 	while (i < data->map.h)
 	{
 		set_line_points(data, i);
@@ -50,9 +50,9 @@ void	draw_lines(t_mlxdt *data)
 			data->line.x1 = data->map.pts[j][i].x;
 			data->line.x2 = data->map.pts[j][i + 1].x;
 			data->line.y1 = data->map.pts[j][i].y -
-				data->map.pts[j][i].height;
+				data->map.pts[j][i].height * data->val.size;
 			data->line.y2 = data->map.pts[j][i + 1].y -
-				data->map.pts[j][i + 1].height;
+				data->map.pts[j][i + 1].height * data->val.size;
 			draw_line(&data->img, &data->line, 0xFFFFFF00);
 			i++;
 		}
@@ -74,9 +74,9 @@ void	draw_column(t_mlxdt *data)
 			data->line.x1 = data->map.pts[j][i].x;
 			data->line.x2 = data->map.pts[j + 1][i].x;
 			data->line.y1 = data->map.pts[j][i].y -
-				data->map.pts[j][i].height;
+				data->map.pts[j][i].height * data->val.size;
 			data->line.y2 = data->map.pts[j + 1][i].y -
-				data->map.pts[j + 1][i].height;
+				data->map.pts[j + 1][i].height *data->val.size;
 			draw_line(&data->img, &data->line, 0xFFFFFF00);
 			j++;
 		}
