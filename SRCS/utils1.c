@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/31 16:45:01 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/08/31 16:45:19 by aachbaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-int     count_nbr(char *line)
+int	count_nbr(char *line)
 {
-	int     i;
-	int     nbr;
+	int	i;
+	int	nbr;
 
 	i = 0;
 	nbr = 0;
@@ -27,14 +39,8 @@ void	free_everything(t_mlxdt *data)
 	i = 0;
 	free(data->file);
 	while (i < data->map.h)
-	{
 		free(data->map.pts[i++]);
-//		printf("\n%d\n", i);
-	}
-	//printf("\ndestroy image\n");
 	mlx_destroy_image(data->m_ptr, data->img.p_img);
-	//printf("\ndestroy win\n");
 	mlx_destroy_window(data->m_ptr, data->m_win);
-	//printf("\ndestroy disp\n");
 	mlx_destroy_display(data->m_ptr);
 }

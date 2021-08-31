@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   drawing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/31 16:41:11 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/08/31 16:41:32 by aachbaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
-	int	i;
+	int		i;
 
 	if (x < 1920 && x > 0 && y > 0 && y < 1080)
 	{
@@ -19,7 +31,6 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 		}
 	}
 }
-
 
 void	line_exissup(t_img *img, t_line line, int color)
 {
@@ -78,4 +89,3 @@ void	draw_line(t_img *img, t_line *line, int color)
 	else
 		line_eyissup(img, *line, color);
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/31 16:50:39 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/08/31 16:50:42 by aachbaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -10,30 +22,30 @@
 # include <math.h>
 # define K_ESCAPE 65307
 
-typedef struct		s_img
+typedef struct s_img
 {
-	void		*p_img;
-	char		*addr;
+	void	*p_img;
+	char	*addr;
 	int		bpp;
 	int		line_len;
 	int		endian;
 }			t_img;
 
-typedef struct		s_point
+typedef struct s_point
 {
 	int		x;
 	int		y;
 	int		height;
 }			t_point;
 
-typedef struct		s_map
+typedef struct s_map
 {
 	t_point		**pts;
-	int		w;
-	int		h;
+	int			w;
+	int			h;
 }			t_map;
 
-typedef struct		s_line
+typedef struct s_line
 {
 	int		x1;
 	int		x2;
@@ -49,7 +61,7 @@ typedef struct		s_line
 	int		incr_y;
 }			t_line;
 
-typedef struct		s_grid
+typedef struct s_grid
 {
 	int		vect_x;
 	int		vect_y;
@@ -58,29 +70,29 @@ typedef struct		s_grid
 	int		init_y;
 }			t_grid;
 
-typedef struct		s_mlxdt
+typedef struct s_mlxdt
 {
-	void		*m_ptr;
-	void		*m_win;
+	void	*m_ptr;
+	void	*m_win;
 	int		fd;
-	char		*file;
-	t_img		img;
-	t_map		map;
-	t_line		line;
-	t_grid		val;
+	char	*file;
+	t_img	img;
+	t_map	map;
+	t_line	line;
+	t_grid	val;
 	int		screen_x;
 	int		screen_y;
 }			t_mlxdt;
 
-void    img_pix_put(t_img *img, int x, int y, int color);
-void    line_exissup(t_img *img, t_line line, int color);
-void    line_eyissup(t_img *img, t_line line, int color);
-void    draw_line(t_img *img, t_line *line, int color);
-int     count_nbr(char *line);
+void	img_pix_put(t_img *img, int x, int y, int color);
+void	line_exissup(t_img *img, t_line line, int color);
+void	line_eyissup(t_img *img, t_line line, int color);
+void	draw_line(t_img *img, t_line *line, int color);
+int		count_nbr(char *line);
 void	get_map_size(t_mlxdt *data, char *line);
-int	mall_tab(t_mlxdt *data);
-int	get_map(t_mlxdt *data);
-int	window(t_mlxdt *data);
+int		mall_tab(t_mlxdt *data);
+int		get_map(t_mlxdt *data);
+int		window(t_mlxdt *data);
 void	set_points(t_mlxdt *data);
 void	draw_grid(t_mlxdt *data);
 void	free_everything(t_mlxdt *data);
