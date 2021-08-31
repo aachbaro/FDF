@@ -25,17 +25,16 @@ void	free_everything(t_mlxdt *data)
 	int	i;
 
 	i = 0;
-//	free(data->file);
-	printf("\nOK\n");
+	free(data->file);
 	while (i < data->map.h)
 	{
 		free(data->map.pts[i++]);
-		printf("\n%d\n", i);
+//		printf("\n%d\n", i);
 	}
 	//printf("\ndestroy image\n");
-	//mlx_destroy_image(data->m_ptr, data->img.p_img);
+	mlx_destroy_image(data->m_ptr, data->img.p_img);
 	//printf("\ndestroy win\n");
-	//mlx_destroy_window(data->m_ptr, data->m_win);
+	mlx_destroy_window(data->m_ptr, data->m_win);
 	//printf("\ndestroy disp\n");
-	//mlx_destroy_display(data->m_ptr);
+	mlx_destroy_display(data->m_ptr);
 }

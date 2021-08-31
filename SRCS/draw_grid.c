@@ -12,7 +12,7 @@ void	set_line_points(t_mlxdt *data, int l)
 		data->map.pts[l][0].y = data->map.pts[l - 1][0].y +
 			data->val.vect_y * data->val.size;
 	}
-	while (i < data->map.w - 1)
+	while (i < data->map.w)
 	{
 		data->map.pts[l][i].x = data->map.pts[l][i - 1].x +
 			data->val.vect_x * data->val.size;
@@ -53,7 +53,7 @@ void	draw_lines(t_mlxdt *data)
 				data->map.pts[j][i].height;
 			data->line.y2 = data->map.pts[j][i + 1].y -
 				data->map.pts[j][i + 1].height;
-			draw_line(data->img.p_img, &data->line, 0xFFFFFF00);
+			draw_line(&data->img, &data->line, 0xFFFFFF00);
 			i++;
 		}
 		j++;
@@ -75,9 +75,9 @@ void	draw_column(t_mlxdt *data)
 			data->line.x2 = data->map.pts[j + 1][i].x;
 			data->line.y1 = data->map.pts[j][i].y -
 				data->map.pts[j][i].height;
-			data->line.y1 = data->map.pts[j + 1][i].y -
+			data->line.y2 = data->map.pts[j + 1][i].y -
 				data->map.pts[j + 1][i].height;
-			draw_line(data->img.p_img, &data->line, 0xFFFFFF00);
+			draw_line(&data->img, &data->line, 0xFFFFFF00);
 			j++;
 		}
 		i++;

@@ -11,7 +11,7 @@ LIBFT = -L./LIBFT -lft
 MLX = -L./../MLX -lmlx -lXext -lX11 -lm
 CC = gcc #clang
 INC = -I./fdf.h
-CFLAGS = #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 RM = rm -rf
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)

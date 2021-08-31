@@ -79,6 +79,7 @@ void	get_map_size(t_mlxdt *data, char *line);
 int	mall_tab(t_mlxdt *data);
 int	get_map(t_mlxdt *data);
 int	window(t_mlxdt *data);
+void	set_points(t_mlxdt *data);
 void	draw_grid(t_mlxdt *data);
 void	free_everything(t_mlxdt *data);
 

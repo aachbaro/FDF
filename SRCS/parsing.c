@@ -2,9 +2,6 @@
 
 void	get_map_size(t_mlxdt *data, char *line)
 {
-	int	i;
-
-	i = 0;
 	data->map.w = 0;
 	data->map.h = 0;
 	while (get_next_line(data->fd, &line))
@@ -72,6 +69,7 @@ int	get_map(t_mlxdt *data)
 {
 	char	*line;
 
+	line = NULL;
 	data->fd = open(data->file, O_RDONLY);
 	get_map_size(data, line);
 	mall_tab(data);
