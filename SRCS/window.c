@@ -52,6 +52,8 @@ int	window(t_mlxdt *data)
 			&data->img.line_len, &data->img.endian);
 	data->val.init_x = data->screen_x / 2;
 	data->val.init_y = data->screen_y / 5;
+	data->img.size_x = data->screen_x;
+	data->img.size_y = data->screen_y;
 	mlx_hook(data->m_win, 2, (1L << 0), &key_press, data);
 	mlx_loop_hook(data->m_ptr, &render, data);
 	mlx_loop(data->m_ptr);

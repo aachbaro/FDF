@@ -17,7 +17,7 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 	char	*pixel;
 	int		i;
 
-	if (x < 1920 && x > 0 && y > 0 && y < 1080)
+	if (x < img->size_x && x > 0 && y > 0 && y < img->size_y)
 	{
 		i = img->bpp - 8;
 		pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
