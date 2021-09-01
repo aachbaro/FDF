@@ -98,6 +98,7 @@ void	draw_column(t_mlxdt *data)
 
 void	draw_grid(t_mlxdt *data)
 {
+	init_back_black(data);
 	set_points(data);
 	draw_lines(data);
 	draw_column(data);

@@ -19,6 +19,14 @@ int	key_press(int keysym, t_mlxdt *data)
 		free_everything(data);
 		exit(0);
 	}
+	else if (keysym == K_UP)
+		data->val.init_y -= 10;
+	else if (keysym == K_DOWN)
+		data->val.init_y += 10;
+	else if (keysym == K_LEFT)
+		data->val.init_x -= 10;
+	else if (keysym == K_RIGHT)
+		data->val.init_x += 10;
 	return (0);
 }
 

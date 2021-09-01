@@ -44,3 +44,22 @@ void	free_everything(t_mlxdt *data)
 	mlx_destroy_window(data->m_ptr, data->m_win);
 	mlx_destroy_display(data->m_ptr);
 }
+
+void	init_back_black(t_mlxdt *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < data->screen_y)
+	{
+		j = 0;
+		while (j < data->screen_x)
+		{
+			img_pix_put(&data->img, j, i, 0x00000000);
+			j++;
+		}
+		i++;
+	}
+}
+
