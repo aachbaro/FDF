@@ -63,3 +63,16 @@ void	init_back_black(t_mlxdt *data)
 	}
 }
 
+void	init_val(t_mlxdt *data)
+{
+	data->val.vect_x = 2;
+	data->val.vect_y = 1;
+	data->val.size = 10;
+	data->val.init_x = data->screen_x / 2;
+	data->val.init_y = data->screen_y / 5;
+	data->val.up = 0;
+	data->val.down = 0;
+	data->val.left = 0;
+	data->val.right = 0;
+}
+

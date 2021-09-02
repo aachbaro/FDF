@@ -21,10 +21,12 @@
 # include <stdio.h>
 # include <math.h>
 # define K_ESCAPE 65307
-# define K_UP 65362
-# define K_LEFT 65361
-# define K_DOWN 65364
-# define K_RIGHT 65363
+# define K_UP 119
+# define K_LEFT 97
+# define K_DOWN 115
+# define K_RIGHT 100
+# define K_ZOOM 65362
+# define K_UNZOOM 65364
 
 typedef struct s_img
 {
@@ -74,7 +76,11 @@ typedef struct s_grid
 	int	size;
 	int	init_x;
 	int	init_y;
-}			t_grid;
+	int	up;
+	int	left;
+	int	down;
+	int	right;
+}		t_grid;
 
 typedef struct s_mlxdt
 {
@@ -103,5 +109,8 @@ void	init_back_black(t_mlxdt *data);
 void	set_points(t_mlxdt *data);
 void	draw_grid(t_mlxdt *data);
 void	free_everything(t_mlxdt *data);
-
+void	init_val(t_mlxdt *data);
+int	key_press(int keysym, t_mlxdt *data);
+int	key_release(int keysym, t_mlxdt *data);
+void	move(t_mlxdt *data);
 #endif
