@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 11:46:17 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/19 13:17:39 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/01 15:41:40 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	ptr = lst;
 	while (ptr)
 	{
-		if (!(newlink = ft_lstnew((*f)(ptr->content))))
+		newlink = ft_lstnew((*f)(ptr->content));
+		if (!newlink)
 		{
 			ft_lstclear(&newlist, (*del));
 			return (NULL);

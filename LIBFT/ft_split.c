@@ -6,13 +6,14 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:36:50 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/11 16:32:22 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 15:09:00 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		word_count(const char *str, char sep)
+int	word_count(const char *str, char sep)
 {
 	int	i;
 	int	words;
@@ -32,6 +33,34 @@ int		word_count(const char *str, char sep)
 	return (words);
 }
 
+char	**mall_tab(const char *s, char c)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**tab;
+
+	k = 0;
+	i = 0;
+	tab = malloc(sizeof(char *) * (word_count(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	while (k < (word_count(s, c)))
+	{
+		while (s[i] == c && s[i])
+			i++;
+		j = i;
+		while (s[j] != c && s[j])
+			j++;
+		tab[k] = malloc(sizeof(char) * (j - i + 1));
+		if (!tab[k])
+			return (NULL);
+		i = j;
+		k++;
+	}
+	return (tab);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	int		k;
@@ -41,17 +70,13 @@ char	**ft_split(const char *s, char c)
 
 	k = 0;
 	i = 0;
-	if (!(tab = malloc(sizeof(char *) * (word_count(s, c) + 1))))
+	tab = mall_tab(s, c);
+	if (!tab)
 		return (NULL);
 	while (k < word_count(s, c))
 	{
 		while (s[i] == c && s[i])
 			i++;
-		j = i;
-		while (s[j] != c && s[j])
-			j++;
-		if (!(tab[k] = malloc(sizeof(char) * (j - i + 1))))
-			return (NULL);
 		j = 0;
 		while (s[i] != c && s[i])
 			tab[k][j++] = s[i++];

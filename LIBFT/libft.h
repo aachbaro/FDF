@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:04:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 14:52:33 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:02:59 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# define BUFFER_SIZE 42
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -66,19 +68,15 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-		void (*del)(void *));
+						void (*del)(void *));
 int					del_str(char **str, int ret);
 char				*loop_buf(int fd, int *ret, char *tmp);
 char				*get_line(char *tmp);
 char				*get_tmp(char *tmp);
 int					get_next_line(int fd, char **line);
-int					ft_slen(const char *str);
-char				*ft_schr(const char *s, int c);
-char				*ft_sjoin(char const *s1, char const *s2);
-char				*ft_sdup(const char *s);
-int					del_str(char **str, int ret);
-char				*loop_buf(int fd, int *ret, char *tmp);
-char				*get_line(char *tmp);
-char				*get_tmp(char *tmp);
+int					gnl_strlen(const char *str);
+char				*gnl_strchr(const char *s, int c);
+char				*gnl_strjoin(char const *s1, char const *s2);
+char				*gnl_strdup(const char *s);
 
 #endif

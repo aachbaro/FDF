@@ -6,13 +6,13 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:42:19 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 14:05:01 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:01:33 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_slen(const char *str)
+int	gnl_strlen(const char *str)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int		ft_slen(const char *str)
 	return (i);
 }
 
-char	*ft_schr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	char	*str;
 
@@ -38,7 +38,7 @@ char	*ft_schr(const char *s, int c)
 	return (str);
 }
 
-char	*ft_sdup(const char *s)
+char	*gnl_strdup(const char *s)
 {
 	int		i;
 	char	*cpy;
@@ -61,7 +61,7 @@ char	*ft_sdup(const char *s)
 	return (cpy);
 }
 
-char	*ft_sjoin(char const *s1, char const *s2)
+char	*gnl_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -73,7 +73,8 @@ char	*ft_sjoin(char const *s1, char const *s2)
 		i++;
 	while (s2[j])
 		j++;
-	if (!(str = malloc(sizeof(char) * (j + i + 1))))
+	str = malloc(sizeof(char) * (j + i + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -86,7 +87,7 @@ char	*ft_sjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-int		del_str(char **str, int ret)
+int	del_str(char **str, int ret)
 {
 	free(*str);
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 16:25:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/18 11:30:10 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/01 15:43:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	if (!dest && !src)
 		return (NULL);

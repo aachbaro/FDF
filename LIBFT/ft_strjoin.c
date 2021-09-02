@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 16:35:18 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/11 16:45:57 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 15:12:41 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	while (s2[j])
 		j++;
-	if (!(str = malloc(sizeof(char) * (j + i + 1))))
+	str = malloc(sizeof(char) * (j + i + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 16:59:11 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/15 10:45:23 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/01 15:40:18 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ char	*ft_itoa(int n)
 		cpy = -cpy;
 	}
 	i = numsize(cpy, 1);
-	if (!(str = malloc(sizeof(char) * (i + neg + 1))))
+	str = malloc(sizeof(char) * (i + neg + 1));
+	if (!str)
 		return (NULL);
 	if (neg == 1)
 		str[j++] = '-';
