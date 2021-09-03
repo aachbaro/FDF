@@ -76,6 +76,7 @@ typedef struct s_grid
 	int	size;
 	int	init_x;
 	int	init_y;
+	int	color;
 	int	up;
 	int	left;
 	int	down;

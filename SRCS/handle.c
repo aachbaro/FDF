@@ -53,5 +53,7 @@ void	move(t_mlxdt *data)
 		data->val.init_x += 20;
 	if (data->val.right)
 		data->val.init_x -= 20;
+	else
+		data->val.color++;
 
 }
