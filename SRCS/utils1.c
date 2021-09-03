@@ -70,7 +70,7 @@ void	init_val(t_mlxdt *data)
 	data->val.size = 10;
 	data->val.init_x = data->screen_x / 2;
 	data->val.init_y = data->screen_y / 5;
-	data->val.color = 0x00FFFF00;
+	data->val.color = 0x0000FF00;
 	data->val.up = 0;
 	data->val.down = 0;
 	data->val.left = 0;
