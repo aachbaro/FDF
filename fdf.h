@@ -81,6 +81,8 @@ typedef struct s_grid
 	int	left;
 	int	down;
 	int	right;
+	int	zoom;
+	int	unzoom;
 }		t_grid;
 
 typedef struct s_mlxdt
@@ -114,4 +116,6 @@ void	init_val(t_mlxdt *data);
 int	key_press(int keysym, t_mlxdt *data);
 int	key_release(int keysym, t_mlxdt *data);
 void	move(t_mlxdt *data);
+int	get_high(t_mlxdt data, int i, int j);
+
 #endif

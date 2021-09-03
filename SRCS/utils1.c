@@ -67,13 +67,26 @@ void	init_val(t_mlxdt *data)
 {
 	data->val.vect_x = 2;
 	data->val.vect_y = 1;
-	data->val.size = 10;
+	data->val.size = 1;
 	data->val.init_x = data->screen_x / 2;
 	data->val.init_y = data->screen_y / 5;
-	data->val.color = 0x0000FF00;
+	data->val.color = 0x009F003F;
 	data->val.up = 0;
 	data->val.down = 0;
 	data->val.left = 0;
 	data->val.right = 0;
+	data->val.zoom = 0;
+	data->val.unzoom = 0;
 }
+
+int	get_high(t_mlxdt data, int i, int j)
+{
+	int	ret;
+
+	data.val.size *= 100;
+	ret = data.val.size * data.map.pts[j][i].height;
+	ret /= 1000;
+	return (ret);
+}
+
 

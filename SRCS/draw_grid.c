@@ -62,9 +62,9 @@ void	draw_lines(t_mlxdt *data)
 			data->line.x1 = data->map.pts[j][i].x;
 			data->line.x2 = data->map.pts[j][i + 1].x;
 			data->line.y1 = data->map.pts[j][i].y
-				- data->map.pts[j][i].height;
+				- get_high(*data, i, j);
 			data->line.y2 = data->map.pts[j][i + 1].y
-				- data->map.pts[j][i + 1].height;
+				- get_high(*data, i + 1, j);
 			draw_line(&data->img, &data->line, data->val.color);
 			i++;
 		}
@@ -86,9 +86,9 @@ void	draw_column(t_mlxdt *data)
 			data->line.x1 = data->map.pts[j][i].x;
 			data->line.x2 = data->map.pts[j + 1][i].x;
 			data->line.y1 = data->map.pts[j][i].y
-				- data->map.pts[j][i].height;
+				- get_high(*data, i, j);
 			data->line.y2 = data->map.pts[j + 1][i].y
-				- data->map.pts[j + 1][i].height;
+				- get_high(*data, i, j+ 1);
 			draw_line(&data->img, &data->line, data->val.color);
 			j++;
 		}
